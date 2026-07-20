@@ -1,0 +1,58 @@
+🚀 Day 1 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 33 – Search in Rotated Sorted Array.
+
+This problem helped me strengthen my understanding of Binary Search and how it can be modified to work efficiently even on a rotated sorted array.
+
+💡 Approach: Binary Search (O(log n))
+
+Instead of performing a linear search, I used a modified Binary Search. At every step, I identified which half of the array was sorted. Based on the target's range, I discarded the irrelevant half and continued searching in the remaining portion. This reduced the time complexity from O(n) to O(log n).
+
+📚 Key Learnings:
+✅ Understanding Binary Search beyond a normally sorted array
+✅ Identifying the sorted half in a rotated array
+✅ Applying conditional logic to eliminate half of the search space
+✅ Improving problem-solving and algorithmic thinking
+✅ Writing optimized solutions with O(log n) complexity
+
+Every problem solved is one step closer to becoming a better software engineer. Looking forward to learning something new every day! 🚀
+
+#DrGViswanathanChallenge #Day1 #LeetCode #LeetCode33 #SearchInRotatedSortedArray #BinarySearch #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineering #VITBhopal #100DaysOfCode #LearningInPublic #Tech #Coding
+
+
+
+
+
+
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int st = 0;
+        int end = nums.size()-1;
+        while(st<=end){
+            int mid = st + (end-st)/2;
+            if(nums[mid]== target){
+                return mid;
+            }
+            if(nums[st]<= nums[mid]){
+                if(nums[st]<= target && target <= nums[mid]){
+                    end = mid -1 ;
+                }else{
+                    st = mid +1;
+                }
+            }else{
+                if(nums[mid]<= target && target <= nums[end]){
+                    st = mid+1;
+                }else {
+                    end = mid -1 ;
+                }
+            }
+        }
+        return -1;
+    }
+};
+
+
+
+
