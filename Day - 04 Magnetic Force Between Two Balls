@@ -1,0 +1,56 @@
+🚀 Day 4 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 1552 – Magnetic Force Between Two Balls.
+
+This problem strengthened my understanding of Binary Search on the Answer and how a greedy placement strategy can be used to maximize the minimum distance between placed balls.
+
+💡 Approach: Binary Search + Greedy Placement (O(n log(maxDistance)))
+
+First, I sorted the basket positions. Then, I applied Binary Search on the possible answer (minimum magnetic force). For every candidate distance, I used a Greedy approach to place the balls while maintaining at least that minimum distance. If placing all m balls was possible, I searched for a larger distance; otherwise, I reduced the search space. This efficiently found the maximum possible minimum distance.
+
+📚 Key Learnings:
+✅ Mastering the Binary Search on Answer technique
+✅ Applying a Greedy strategy for optimal placement
+✅ Understanding optimization problems with sorted arrays
+✅ Reducing the search space efficiently instead of brute force
+✅ Achieving an optimized O(n log(maxDistance)) solution
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every challenging problem teaches a new pattern. Today’s problem reinforced that many optimization questions can be solved by combining Binary Search with a Greedy approach. Looking forward to the next challenge! 🚀
+
+#DrGViswanathanChallenge #Day4 #LeetCode #LeetCode1552 #MagneticForceBetweenTwoBalls #BinarySearch #BinarySearchOnAnswer #Greedy #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+  //-------------------------------------------
+  class Solution {
+public:
+    bool isvalid(vector<int>& v ,int m , int middle,int n ){
+        int ball = 1 , last_filled_basket = v[0];
+        for(int i=1 ;i<n;i++){
+            if(v[i]-last_filled_basket >= middle){
+                ball++;
+                last_filled_basket = v[i];
+            }
+            if(ball == m){
+                return true;
+            }
+        }
+        return false;
+    }
+    int maxDistance(vector<int>& pos, int m) {
+        sort(pos.begin(),pos.end());
+        int n = pos.size() ,st = 1 , end = pos[n-1] - pos[0] , ans = -1 ;
+        while(st<=end){
+            int mid = st + (end-st)/2;
+            if(isvalid(pos,m,mid,n)){
+                ans = mid;
+                st = mid +1;
+            }else{
+                end = mid -1;
+            }
+        }
+        return ans;
+    }
+};
