@@ -1,1 +1,74 @@
+🚀 Day 3 of #DrGViswanathanChallenge
 
+Today, I solved my first Hard problem on LeetCode 🎉
+
+LeetCode 410 – Split Array Largest Sum
+
+This problem challenged me to think beyond a normal Binary Search. I learned how Binary Search on the Answer combined with a Greedy Validation approach can solve optimization problems efficiently.
+
+💡 Approach: Binary Search + Greedy Validation (O(n log(sum)))
+
+Instead of checking every possible way to split the array, I performed Binary Search on the range of possible answers (maximum subarray sum). For every candidate value, I used a greedy validation function to determine whether the array could be divided into k subarrays while keeping each subarray sum within the given limit. Based on the result, I narrowed down the search space until I found the minimum possible largest sum.
+
+📚 Key Learnings:
+✅ Understanding the Binary Search on Answer technique
+✅ Combining Binary Search with a Greedy validation function
+✅ Solving optimization problems efficiently
+✅ Reducing the brute-force approach to O(n log(sum))
+✅ Strengthening problem-solving skills for Hard-level questions
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Solving my first Hard problem was definitely challenging, but every difficult problem teaches a new way of thinking. This is just the beginning—looking forward to solving many more! 🚀
+
+#DrGViswanathanChallenge #Day3 #LeetCode #LeetCode410 #SplitArrayLargestSum #FirstHardProblem #BinarySearch #BinarySearchOnAnswer #Greedy #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+
+
+//-------------------------------------------
+class Solution {
+public:
+
+    bool isvalid(vector<int> &nums , int k , int max ){
+            int student = 1;
+            int pages = 0;
+
+            for(int i =0;i<nums.size();i++){
+                if(nums[i]>max){ // edge case 
+                    return false;
+                }
+                if(pages+nums[i] <= max){
+                    pages += nums[i];
+                }else{
+                    student++;
+                    pages = nums[i];
+                }
+            }
+            return student>k? false :true;
+            
+     }
+    int splitArray(vector<int>& nums, int k) {
+        int n = nums.size();
+        int sum =0;
+        if(k>n){ //edge case student more than number of books
+            return -1;
+        }
+        for(int i =0 ; i<n;i++){
+            sum = sum + nums[i];
+        }
+        int ans = -1;
+        int st=0 , end = sum;
+        while(st<=end){
+            int mid = st + (end-st)/2;
+
+            if(isvalid(nums , k , mid)){
+                ans = mid;
+                end = mid-1;
+            }else{
+                st = mid + 1;
+            }
+        }return ans;
+    }
+};
