@@ -1,0 +1,58 @@
+🚀 Day 5 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 75 – Sort Colors.
+
+This problem helped me understand the Dutch National Flag Algorithm, an elegant in-place sorting technique that sorts an array containing only 0s, 1s, and 2s in a single traversal.
+
+💡 Approach: Dutch National Flag Algorithm (Three Pointers)
+
+I used three pointers:
+
+low → points to the position where the next 0 should be placed.
+mid → traverses the array.
+high → points to the position where the next 2 should be placed.
+
+As I traversed the array:
+
+If the current element was 0, I swapped it with the low pointer and moved both low and mid.
+If it was 1, I simply moved mid.
+If it was 2, I swapped it with the high pointer and decreased high without moving mid, since the swapped element still needed to be processed.
+
+This allowed the array to be sorted in one pass with O(n) time and O(1) extra space.
+
+📚 Key Learnings:
+✅ Understanding the Dutch National Flag Algorithm
+✅ Efficient use of the Three Pointer technique
+✅ Sorting an array in a single traversal
+✅ Solving in-place array problems with constant extra space
+✅ Achieving an optimized O(n) solution with O(1) space complexity
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every problem introduces a new algorithmic pattern. Today's challenge taught me how a simple three-pointer approach can replace traditional sorting for specific problems and achieve optimal performance. 🚀
+
+#DrGViswanathanChallenge #Day5 #LeetCode #LeetCode75 #SortColors #DutchNationalFlag #ThreePointers #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+//---------------------------------------
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+       int mid = 0 , low = 0 , high = nums.size()-1;
+       while(mid<=high){
+        if(nums[mid] == 0){
+            swap(nums[low],nums[mid]);
+            mid++;
+            low++;
+        }else if(nums[mid] == 1){
+            mid++;
+        }else{
+            swap(nums[high],nums[mid]);
+            high--;
+        }
+       }
+        
+    }
+};
