@@ -1,1 +1,25 @@
+🚀 Day 6 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 88 – Merge Sorted Array.
+
+This problem reinforced my understanding of the Two Pointers technique and how to merge two sorted arrays efficiently without using any extra space.
+
+💡 Approach: Two Pointers (Back-to-Front Merge)
+
+Instead of creating a new array, I started comparing elements from the end of both arrays. Since nums1 already has enough extra space, I placed the larger element at the last available position and moved the corresponding pointer. After one array was exhausted, I copied the remaining elements from nums2 into nums1.
+
+This approach avoids unnecessary shifting of elements and achieves an efficient in-place merge.
+
+📚 Key Learnings:
+✅ Mastering the Two Pointers technique
+✅ Performing in-place merging without extra memory
+✅ Utilizing the unused space in nums1 effectively
+✅ Avoiding unnecessary element shifting
+✅ Achieving an optimized O(m + n) time complexity with O(1) extra space
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every problem teaches a new optimization technique. Today's challenge showed how choosing the right direction for traversal can simplify the solution and improve efficiency. Looking forward to the next challenge! 🚀
+
+#DrGViswanathanChallenge #Day6 #LeetCode #LeetCode88 #MergeSortedArray #TwoPointers #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
