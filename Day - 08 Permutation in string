@@ -1,1 +1,28 @@
+🚀 Day 8 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 567 – Permutation in String.
+
+This problem introduced me to the concept of Frequency Arrays and Sliding Window, helping me understand how character frequencies can be used to efficiently compare substrings.
+
+💡 Approach: Frequency Array + Sliding Window
+
+I first stored the frequency of every character in s1 using a frequency array. Then, I traversed s2 by considering every possible window of size s1.length(). For each window, I built its frequency array and compared it with the original frequency array. If both matched, it meant that the current window was a permutation of s1.
+
+Although my current solution rebuilds the frequency array for every window, it helped me understand the core idea behind the Sliding Window technique. I'll optimize it further by updating the window frequencies incrementally in future revisions.
+
+📚 What I Learned:
+✅ Using Frequency Arrays for character counting
+✅ Understanding the Sliding Window concept
+✅ Comparing character frequencies efficiently
+✅ Solving string matching problems using frequency analysis
+✅ Building a foundation for optimizing Sliding Window problems
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every problem teaches something new. Today, I explored how Frequency Arrays and Sliding Window work together to solve string matching problems efficiently. Looking forward to optimizing this approach even further as I continue learning! 🚀
+
+#DrGViswanathanChallenge #Day8 #LeetCode #LeetCode567 #PermutationInString #SlidingWindow #FrequencyArray #Strings #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+//===============================================================================
