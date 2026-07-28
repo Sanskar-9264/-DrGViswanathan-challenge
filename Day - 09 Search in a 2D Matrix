@@ -1,1 +1,25 @@
+🚀 Day 9 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 74 – Search a 2D Matrix.
+
+This problem strengthened my understanding of Binary Search by applying it in two stages—first to identify the correct row and then to search for the target element within that row.
+
+💡 Approach: Two-Level Binary Search
+
+Instead of scanning the entire matrix, I first performed Binary Search on the rows to find the only row that could contain the target. Once the correct row was identified, I applied Binary Search again within that row to locate the target efficiently.
+
+This approach leverages the sorted properties of the matrix and achieves an optimized O(log m + log n) time complexity.
+
+📚 What I Learned:
+✅ Applying Binary Search on a 2D Matrix
+✅ Breaking a problem into smaller search spaces
+✅ Performing Binary Search in multiple stages
+✅ Utilizing matrix properties for optimization
+✅ Achieving efficient searching with O(log m + log n) time complexity
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every Binary Search problem introduces a new perspective. Today's challenge showed that understanding the structure of the data is just as important as knowing the algorithm itself. By identifying the correct row first and then narrowing the search further, I was able to solve the problem efficiently. 🚀
+
+#DrGViswanathanChallenge #Day9 #LeetCode #LeetCode74 #SearchA2DMatrix #BinarySearch #Matrices #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
