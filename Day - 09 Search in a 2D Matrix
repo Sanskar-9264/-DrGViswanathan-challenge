@@ -23,3 +23,43 @@ This approach leverages the sorted properties of the matrix and achieves an opti
 Every Binary Search problem introduces a new perspective. Today's challenge showed that understanding the structure of the data is just as important as knowing the algorithm itself. By identifying the correct row first and then narrowing the search further, I was able to solve the problem efficiently. 🚀
 
 #DrGViswanathanChallenge #Day9 #LeetCode #LeetCode74 #SearchA2DMatrix #BinarySearch #Matrices #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+//====================================================
+
+class Solution {
+public:
+
+    bool searchinrow(vector<vector<int>>& mat, int target , int row){
+        int n = mat[0].size();
+        int st = 0 , end = n-1;
+        while(st <= end){
+            int mid = st + (end-st)/2;
+            if(target == mat[row][mid]){
+                return true;
+            }else if(target>mat[row][mid]){
+                st = mid+1;
+            }else{
+                end = mid-1;
+            }
+
+        }return false;
+        
+    }
+    bool searchMatrix(vector<vector<int>>& mat, int target) {
+        int m = mat.size() , n = mat[0].size();
+
+        int startrow = 0 , endrow = m-1;
+        while(startrow<=endrow){
+            int midrow = startrow + (endrow-startrow)/2;
+            if(target>= mat[midrow][0] && target<= mat[midrow][n-1]){
+                return searchinrow(mat , target , midrow);
+            }else if (target>= mat[midrow][n-1]){
+                startrow = midrow+1;
+            }else{
+                endrow = midrow-1;
+            }
+        }
+        return false;
+    }
+};
