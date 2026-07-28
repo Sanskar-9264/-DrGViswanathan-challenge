@@ -1,1 +1,32 @@
+🚀 Day 10 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 240 – Search a 2D Matrix II.
+
+This problem helped me understand an elegant searching technique that takes advantage of the matrix's sorted rows and columns. Instead of using Binary Search on every row, I learned how to eliminate an entire row or column in a single step.
+
+💡 Approach: Staircase Search (Top-Right Traversal)
+
+I started from the top-right corner of the matrix.
+
+If the current element was equal to the target, I returned true.
+If the target was smaller, I moved left since all elements below were even larger.
+If the target was greater, I moved down since all elements to the left were smaller.
+
+By eliminating one row or one column in every iteration, I efficiently searched the matrix without checking every element.
+
+📚 What I Learned:
+✅ Understanding the Staircase Search technique
+✅ Leveraging row-wise and column-wise sorted properties
+✅ Eliminating an entire row or column in each step
+✅ Choosing the right starting point for efficient traversal
+✅ Achieving an optimized O(m + n) time complexity with O(1) extra space
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every problem teaches a different way of thinking. Today's challenge showed me that sometimes the best solution isn't Binary Search—understanding the structure of the data can lead to an even more elegant and efficient approach. 🚀
+
+#DrGViswanathanChallenge #Day10 #LeetCode #LeetCode240 #SearchA2DMatrixII #StaircaseSearch #MatrixTraversal #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+//======================================================
