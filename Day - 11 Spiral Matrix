@@ -1,1 +1,40 @@
+🚀 Day 11 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 54 – Spiral Matrix.
+
+This problem helped me strengthen my understanding of Matrix Traversal and how careful boundary management can simplify seemingly complex traversal patterns.
+
+💡 Approach: Boundary Traversal (Simulation)
+
+I maintained four boundaries:
+
+Top Row (srow)
+Bottom Row (erow)
+Left Column (scol)
+Right Column (ecol)
+
+In every iteration, I traversed:
+
+Left → Right across the top row
+Top → Bottom along the right column
+Right → Left across the bottom row
+Bottom → Top along the left column
+
+After completing one layer, I updated all four boundaries to move inward. I also handled edge cases where only a single row or a single column remained to avoid duplicate traversal.
+
+📚 What I Learned:
+✅ Managing multiple boundaries for matrix traversal
+✅ Solving problems using simulation techniques
+✅ Handling edge cases in matrices (single row/column)
+✅ Writing clean traversal logic without revisiting elements
+✅ Improving confidence in 2D array problems
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every matrix problem improves my understanding of traversal patterns. Today's challenge taught me that managing boundaries carefully is the key to writing clean and efficient solutions for 2D arrays. Looking forward to solving more challenging matrix problems! 🚀
+
+#DrGViswanathanChallenge #Day11 #LeetCode #LeetCode54 #SpiralMatrix #MatrixTraversal #Simulation #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+=============================================================
