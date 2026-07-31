@@ -1,1 +1,49 @@
 
+🚀 Day 12 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 1 – Two Sum, one of the most fundamental and widely asked coding interview problems.
+
+This problem helped me strengthen my understanding of Hash Maps (Unordered Map) and how they can be used to reduce the time complexity of search-based problems.
+
+💡 Approach: Hash Map (Unordered Map)
+
+Instead of checking every pair of elements using nested loops, I traversed the array only once. For each element, I calculated its required complement (target - currentElement) and checked whether it already existed in the hash map. If it did, I had found the answer. Otherwise, I stored the current element and its index for future lookups.
+
+Using a hash map reduced the solution from O(n²) to O(n) time complexity.
+
+📚 What I Learned:
+✅ Efficient use of Hash Maps (Unordered Map)
+✅ Optimizing brute-force solutions from O(n²) to O(n)
+✅ Using complements to solve pair-based problems
+✅ Storing values with their indices for constant-time lookup
+✅ Strengthening problem-solving skills with Arrays and Hashing
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every interview preparation journey starts with mastering the fundamentals. Today's problem reminded me that choosing the right data structure can transform an inefficient solution into an optimal one. On to the next challenge! 🚀
+
+#DrGViswanathanChallenge #Day12 #LeetCode #LeetCode1 #TwoSum #HashMap #UnorderedMap #Arrays #Hashing #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+////============================================
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map <int , int> m;
+        vector <int> ans ;
+        int n = nums.size();
+        int first , sec;
+        for(int i =0 ; i<n ;i++){
+            first = nums[i];
+            sec = target - first;
+            if(m.find(sec) != m.end()){
+                ans.push_back(i);
+                ans.push_back(m[sec]);
+            }
+            m[first] = i;
+        }
+        return ans;
+    }
+};
