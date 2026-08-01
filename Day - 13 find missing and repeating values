@@ -1,1 +1,60 @@
 
+🚀 Day 13 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 2965 – Find Missing and Repeated Values.
+
+This problem helped me strengthen my understanding of Hashing and Mathematical Observation by combining a hash-based lookup with the sum formula to efficiently identify the repeated and missing values.
+
+💡 Approach: Hash Set + Mathematical Formula
+
+I traversed the matrix while storing every element in an unordered_set. If an element was already present in the set, I identified it as the repeated value.
+
+Simultaneously, I calculated the actual sum of all elements. Using the expected sum of numbers from 1 to n², I derived the missing value using the relation:
+
+Missing = Repeated + Expected Sum − Actual Sum
+
+This allowed me to find both answers in a single traversal without extra nested searches.
+
+📚 What I Learned:
+✅ Using unordered_set for duplicate detection
+✅ Applying mathematical formulas to avoid unnecessary iterations
+✅ Combining Hashing with Math for an optimized solution
+✅ Traversing a 2D matrix efficiently
+✅ Solving the problem in O(n²) time with O(n²) extra space
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Today's problem reminded me that the best solutions often come from combining multiple concepts. By using Hashing for duplicate detection and Mathematics for finding the missing value, I arrived at a clean and efficient solution. Every challenge continues to expand my problem-solving toolkit! 🚀
+
+#DrGViswanathanChallenge #Day13 #LeetCode #LeetCode2965 #FindMissingAndRepeatedValues #Hashing #UnorderedSet #Math #Arrays #Matrix #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+//===============================================================================
+
+class Solution {
+public:
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+        unordered_set <int > s ;
+        vector <int> vec;
+        int n = grid.size();
+        int a ;
+        int expected_sum = 0 , actual_sum = 0;
+        for(int i = 0 ; i <n ; i++){
+            for( int j = 0 ; j<n;j++){
+                actual_sum += grid[i][j];
+                if(s.find(grid[i][j]) != s.end()){
+                    //repeted
+                    a = grid[i][j];
+                    vec.push_back(a);
+                }
+                s.insert(grid[i][j]);
+            }   
+        }
+        //missing 
+        expected_sum = (n*n)*(n*n + 1)/2;
+        // actual_sum = expected_sum + reapted - missing; 
+        vec.push_back( a + expected_sum - actual_sum); 
+        return vec;
+    }
+};
