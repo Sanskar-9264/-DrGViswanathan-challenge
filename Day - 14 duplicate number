@@ -1,1 +1,52 @@
+🚀 Day 14 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 287 – Find the Duplicate Number.
+
+This was one of the most interesting problems I've solved so far because it introduced me to Floyd's Cycle Detection Algorithm (Tortoise and Hare). Instead of using extra memory or modifying the array, I learned how to detect the duplicate by treating the array as a linked list.
+
+💡 Approach: Floyd's Cycle Detection (Tortoise & Hare)
+
+The key observation is that each array value can be treated as the next pointer of a linked list. Since one number is repeated, it naturally forms a cycle.
+
+I solved the problem in two phases:
+
+Cycle Detection: Used a slow pointer (moves one step) and a fast pointer (moves two steps) until they met.
+Finding the Cycle Entrance: Reset the slow pointer to the beginning and moved both pointers one step at a time. The point where they met again was the duplicate number.
+
+This elegant approach satisfies all the constraints without modifying the array and uses only constant extra space.
+
+📚 What I Learned:
+✅ Understanding Floyd's Tortoise and Hare Algorithm
+✅ Visualizing an array as a linked list
+✅ Detecting cycles without extra memory
+✅ Solving problems under strict space constraints
+✅ Achieving an optimal O(n) time complexity with O(1) extra space
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Today's challenge completely changed the way I think about arrays. It was fascinating to see how a problem that looks like an array question can actually be solved using a Linked List algorithm. Learning these patterns is what makes DSA so exciting! 🚀
+
+#DrGViswanathanChallenge #Day14 #LeetCode #LeetCode287 #FindTheDuplicateNumber #FloydCycleDetection #TortoiseAndHare #LinkedList #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
+
+
+
+
+/================================================================================
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow != fast);
+        slow = nums[0];
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }return fast;
+    }
+};
