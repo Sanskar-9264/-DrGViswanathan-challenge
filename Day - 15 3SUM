@@ -1,1 +1,34 @@
+🚀 Day 15 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 15 – 3Sum.
+
+This problem strengthened my understanding of the Sorting + Two Pointers technique and showed me how to efficiently solve triplet-based problems while avoiding duplicate answers.
+
+💡 Approach: Sorting + Two Pointers
+
+I first sorted the array, which allowed me to use the Two Pointers approach efficiently.
+
+For each element:
+
+I fixed one element as the first number of the triplet.
+Then I placed two pointers (left and right) on the remaining part of the array.
+Depending on the current sum:
+If the sum was less than 0, I moved the left pointer forward.
+If the sum was greater than 0, I moved the right pointer backward.
+If the sum was 0, I stored the triplet and skipped duplicate elements to ensure unique answers.
+
+This reduced the brute-force O(n³) solution to an optimized O(n²) approach.
+
+📚 What I Learned:
+✅ Applying Sorting + Two Pointers together
+✅ Reducing time complexity from O(n³) to O(n²)
+✅ Handling duplicate elements to avoid repeated triplets
+✅ Using pointer movement based on the current sum
+✅ Strengthening problem-solving skills for array-based interview questions
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Today's challenge reinforced one of the most important DSA patterns: Sort first, then optimize using Two Pointers. It's amazing how the right approach can transform an expensive brute-force solution into an efficient one. Looking forward to learning more advanced patterns! 🚀
+
+#DrGViswanathanChallenge #Day15 #LeetCode #LeetCode15 #3Sum #TwoPointers #Sorting #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
