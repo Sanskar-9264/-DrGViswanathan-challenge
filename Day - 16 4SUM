@@ -1,1 +1,35 @@
+🚀 Day 16 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 18 – 4Sum.
+
+This problem extended the concepts I learned in 3Sum and helped me understand how to efficiently find unique quadruplets using Sorting + Nested Loops + Two Pointers while carefully handling duplicates and integer overflow.
+
+💡 Approach: Sorting + Two Pointers
+
+I first sorted the array. Then:
+
+Fixed the first element (i), skipping duplicates.
+Fixed the second element (j), again skipping duplicates.
+Used two pointers (left and right) to search for the remaining two elements.
+Compared the current sum with the target:
+If the sum was smaller, I moved the left pointer.
+If the sum was greater, I moved the right pointer.
+If the sum matched the target, I stored the quadruplet and skipped duplicate values to ensure unique results.
+
+I also used long long while calculating the sum to safely handle integer overflow for large input values.
+
+This optimized the brute-force O(n⁴) solution to O(n³).
+
+📚 What I Learned:
+✅ Extending the 3Sum pattern to solve 4Sum
+✅ Combining Sorting + Two Pointers for optimization
+✅ Handling duplicate elements to avoid repeated quadruplets
+✅ Preventing integer overflow using long long
+✅ Reducing time complexity from O(n⁴) to O(n³)
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Today's challenge showed me how mastering one pattern makes solving more advanced problems much easier. 4Sum felt like a natural extension of 3Sum, reinforcing that understanding core DSA patterns is the key to tackling complex interview questions. 🚀
+
+#DrGViswanathanChallenge #Day16 #LeetCode #LeetCode18 #4Sum #TwoPointers #Sorting #Arrays #DSA #Algorithms #ProblemSolving #CodingJourney #Cpp #CompetitiveProgramming #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
