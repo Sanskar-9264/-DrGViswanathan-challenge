@@ -1,1 +1,33 @@
+🚀 Day 17 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 560 – Subarray Sum Equals K.
+
+This problem introduced me to one of the most useful DSA techniques for array problems: Prefix Sum + HashMap. Instead of checking every possible subarray, I learned how previously computed prefix sums can be reused to count valid subarrays efficiently.
+
+💡 Approach: Prefix Sum + HashMap
+
+I first computed the prefix sum of the array, where each element stores the cumulative sum up to that index.
+
+Then, while traversing the prefix sum array:
+
+If the current prefix sum itself equals k, I found one valid subarray.
+I searched for (currentPrefixSum - k) in a HashMap.
+If it existed, every occurrence of that prefix sum represented another valid subarray ending at the current index.
+The HashMap stored the frequency of each prefix sum, allowing me to count multiple subarrays in constant time.
+
+This reduced the brute-force O(n²) solution to an optimized O(n) approach with O(n) extra space.
+
+📚 What I Learned:
+
+✅ Using Prefix Sum to represent cumulative sums
+✅ Leveraging a HashMap to store prefix sum frequencies
+✅ Counting multiple subarrays efficiently using frequencies
+✅ Transforming a quadratic solution into a linear one
+✅ Recognizing another important interview pattern for array problems
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every new pattern adds another tool to the problem-solving toolkit. Today's challenge reinforced how combining Prefix Sum with a HashMap can turn an otherwise expensive solution into an elegant linear-time algorithm. 🚀
+
+#DrGViswanathanChallenge #Day17 #LeetCode #LeetCode560 #SubarraySumEqualsK #PrefixSum #HashMap #Arrays #DSA #Algorithms #ProblemSolving #Cpp #CompetitiveProgramming #CodingJourney #Programming #SoftwareEngineer #VITBhopal #100DaysOfCode #LearningInPublic #Tech #GitHub #OpenToWork
