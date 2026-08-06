@@ -1,1 +1,48 @@
 
+🚀 Day 18 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 26 – Remove Duplicates from Sorted Array.
+
+This problem reinforced the power of the Two Pointers technique for in-place array manipulation. Since the array is already sorted, duplicates appear consecutively, making it possible to overwrite them without using any extra space.
+
+💡 Approach: Two Pointers
+
+I used two pointers:
+
+i → Tracks the position of the last unique element.
+j → Traverses the array to find the next unique value.
+
+Whenever nums[j] differs from nums[i], I move i forward and place the new unique element at nums[i]. By the end, the first k = i + 1 elements contain all unique values in sorted order.
+
+⏱️ Time Complexity: O(n)
+💾 Space Complexity: O(1)
+
+📚 What I Learned:
+
+✅ Efficient use of the Two Pointers pattern
+✅ Performing in-place modifications without extra memory
+✅ Leveraging the sorted property of an array to simplify the solution
+✅ Writing clean, linear-time array algorithms
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Every easy problem strengthens the fundamentals. Mastering patterns like Two Pointers is essential because they frequently appear in coding interviews and serve as building blocks for more advanced problems.
+
+#DrGViswanathanChallenge #Day18 #LeetCode #LeetCode26 #TwoPointers #Arrays #InPlaceAlgorithm #DSA #Algorithms #Cpp #CompetitiveProgramming #CodingJourney #ProblemSolving #SoftwareEngineer #100DaysOfCode #LearningInPublic #GitHub #Tech #VITBhopal
+
+//==========================================
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if(nums.size() == 0)return 0;
+        int i =0 ;
+        for(int j = 1;j<nums.size() ; j++){
+            if(nums[i] != nums[j]){
+                i++;
+                nums[i] = nums[j];
+            }
+        }return i+1;
+    }
+};
