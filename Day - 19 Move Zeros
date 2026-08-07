@@ -29,3 +29,19 @@ Whenever a non-zero element is found, I swap it with the element at pointer j an
 Small optimizations and clean in-place solutions are what make array problems interesting. One more step forward in the challenge! 🚀
 
 #DrGViswanathanChallenge #Day19 #LeetCode #LeetCode283 #MoveZeroes #TwoPointers #Arrays #InPlaceAlgorithm #DSA #Algorithms #Cpp #CompetitiveProgramming #CodingJourney #ProblemSolving #SoftwareEngineer #100DaysOfCode #LearningInPublic #GitHub #Tech #VITBhopal
+
+
+//=========================================================
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int j = 0 ;
+        for(int i = 0; i<nums.size() ; i++){
+            if(nums[i] !=0){
+                swap(nums[i],nums[j]);
+                j++;
+            }
+        }
+    }
+};
