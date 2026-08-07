@@ -1,1 +1,31 @@
+🚀 Day 19 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 283 – Move Zeroes.
+
+This problem is another great application of the Two Pointers technique. The goal was to move all 0s to the end while maintaining the relative order of non-zero elements, all in-place with O(1) extra space.
+
+💡 Approach: Two Pointers + In-Place Swapping
+
+I used two pointers:
+
+i → Traverses the entire array.
+j → Tracks the position where the next non-zero element should be placed.
+
+Whenever a non-zero element is found, I swap it with the element at pointer j and increment j. This keeps all non-zero elements at the front while naturally pushing zeroes toward the end.
+
+⏱️ Time Complexity: O(n)
+💾 Space Complexity: O(1)
+
+📚 What I Learned:
+
+✅ Applying the Two Pointers pattern for in-place array manipulation.
+✅ Preserving the relative order of elements while rearranging data.
+✅ Solving problems with constant extra space.
+✅ Building intuition for array partitioning techniques that are commonly asked in interviews.
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Small optimizations and clean in-place solutions are what make array problems interesting. One more step forward in the challenge! 🚀
+
+#DrGViswanathanChallenge #Day19 #LeetCode #LeetCode283 #MoveZeroes #TwoPointers #Arrays #InPlaceAlgorithm #DSA #Algorithms #Cpp #CompetitiveProgramming #CodingJourney #ProblemSolving #SoftwareEngineer #100DaysOfCode #LearningInPublic #GitHub #Tech #VITBhopal
