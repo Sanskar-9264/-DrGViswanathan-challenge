@@ -1,1 +1,49 @@
+🚀 Day 20 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 509 – Fibonacci Number.
+
+This was a simple but important problem for strengthening my understanding of Recursion and how recursive problems can be broken down into smaller subproblems.
+
+💡 Approach: Recursion
+
+The Fibonacci sequence follows:
+
+F(n) = F(n-1) + F(n-2)
+
+I used the base cases:
+
+F(0) = 0
+F(1) = 1
+
+For every n > 1, the function recursively calculates the previous two Fibonacci numbers and adds them together.
+
+📚 What I Learned:
+
+✅ Understanding the basic structure of recursive functions
+✅ Identifying base cases to stop recursion
+✅ Breaking a problem into smaller subproblems
+✅ Understanding how recursion naturally represents the Fibonacci relation
+
+⏱️ Time Complexity: O(2^n)
+💾 Space Complexity: O(n) due to the recursion call stack
+
+Although this recursive solution isn't the most optimized approach, it helped me understand the fundamental concept of recursion. The next step is to explore Dynamic Programming / Memoization to avoid repeated calculations. 🚀
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+20 days completed. Consistency > motivation. 🔥
+
+#DrGViswanathanChallenge #Day20 #LeetCode #LeetCode509 #Fibonacci #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #GitHub #CompetitiveProgramming #SoftwareEngineer #Tech #VITBhopal
+
+//==========================================
+
+class Solution {
+public:
+    int fib(int n) {
+       if(n == 0 ||n == 1){
+        return n;
+       } 
+       return fib(n-1)+fib(n-2); 
+    }
+};
