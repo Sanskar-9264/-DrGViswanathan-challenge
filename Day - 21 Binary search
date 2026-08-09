@@ -1,0 +1,56 @@
+🚀 Day 21 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 704 – Binary Search.
+
+After working with recursion and different array techniques, today’s problem was a great reminder of how efficiently we can search a sorted array without checking every element.
+
+💡 Approach: Binary Search using Recursion
+
+I used a recursive binary search approach:
+
+Find the middle element.
+If nums[mid] == target, return its index.
+If nums[mid] < target, search in the right half.
+Otherwise, search in the left half.
+If st > end, the target doesn't exist, so return -1.
+
+The key idea is that every step eliminates half of the remaining search space.
+
+⏱️ Time Complexity: O(log n)
+💾 Space Complexity: O(log n) due to recursive calls.
+
+📚 What I Learned:
+
+✅ How Binary Search reduces the search space by half.
+✅ Implementing Binary Search using recursion.
+✅ Understanding how st, mid, and end define the search range.
+✅ Why sorted data allows us to achieve O(log n) searching.
+✅ The importance of correctly handling the base condition.
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Day 21 completed. One problem at a time, one concept at a time. 🚀
+
+#DrGViswanathanChallenge #Day21 #LeetCode #LeetCode704 #BinarySearch #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #GitHub #CompetitiveProgramming #SoftwareEngineer #Tech #VITBhopal
+
+
+//=========================================
+
+class Solution {
+public:
+    int bs(vector<int>& nums, int tar,int st , int end){
+        if(st<= end){
+            int mid = st + (end-st)/2;
+            if(nums[mid]==tar)return mid;
+            else if (nums[mid]<= tar){
+                return bs(nums , tar,mid+1,end);
+            }else{
+                return bs(nums,tar,st,mid-1);
+            }
+        }return -1;
+    }
+    int search(vector<int>& nums, int tar) {
+       return bs(nums,tar,0,nums.size()-1);
+    }
+};
