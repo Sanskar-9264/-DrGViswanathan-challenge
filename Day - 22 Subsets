@@ -1,0 +1,66 @@
+🚀 Day 22 of #DrGViswanathanChallenge
+
+Today, I solved LeetCode 78 – Subsets.
+
+Today’s problem was a great introduction to Backtracking / Recursion. The main idea was to generate every possible subset by making a choice for each element: include it or exclude it.
+
+💡 Approach: Recursion + Backtracking
+
+For every element, I explored two possibilities:
+
+✅ Include the current element in the subset.
+❌ Exclude the current element and move ahead.
+
+When i == nums.size(), I reached the end of the array, so the current subset was added to the answer.
+
+The push_back() and pop_back() operations helped me maintain and restore the current subset while exploring different possibilities.
+
+📚 What I Learned:
+
+✅ How recursion can be used to explore multiple choices.
+✅ Understanding the include/exclude pattern.
+✅ Basics of backtracking using push_back() and pop_back().
+✅ How a recursion tree generates all possible combinations.
+✅ Understanding why n elements produce 2ⁿ subsets.
+
+⏱️ Time Complexity: O(n × 2ⁿ)
+💾 Space Complexity: O(n) auxiliary recursion space (excluding the output)
+
+💻 GitHub Repository:
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+Day 22 completed. From Binary Search to Recursion & Backtracking — slowly building stronger DSA fundamentals. 🔥
+
+#DrGViswanathanChallenge #Day22 #LeetCode #LeetCode78 #Subsets #Backtracking #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #GitHub #CompetitiveProgramming #SoftwareEngineer #Tech #VITBhopal
+
+
+//======================================
+
+class Solution {
+public:
+    void getallsubset(vector<int>& nums, vector<int>& ans, int i,
+                      vector<vector<int>>& allsubset) {
+
+        if (i == nums.size()) {
+            allsubset.push_back(ans);
+            return;
+        }
+
+        // Including current element
+        ans.push_back(nums[i]);
+        getallsubset(nums, ans, i + 1, allsubset);
+
+        // Excluding current element
+        ans.pop_back();
+        getallsubset(nums, ans, i + 1, allsubset);
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> allsubset;
+        vector<int> ans;
+
+        getallsubset(nums, ans, 0, allsubset);
+
+        return allsubset;
+    }
+};
