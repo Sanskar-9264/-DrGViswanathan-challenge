@@ -1,1 +1,59 @@
+🚀 Day 24 of #DrGViswanathanChallenge
 
+Today, I solved LeetCode 46 – Permutations.
+
+After working with subsets and backtracking, today I explored another important backtracking pattern: generating all permutations.
+
+💡 Approach: Backtracking + Swapping
+
+Instead of creating a separate visited array, I used in-place swapping:
+
+Choose an element for the current position.
+Swap it with the element at the current index.
+Recursively generate permutations for the next position.
+Swap back to restore the original arrangement (backtracking).
+
+For example, with [1,2,3], at index 0 I try 1, 2, and 3 one by one, recursively generating all possible arrangements.
+
+📚 What I Learned:
+
+✅ Generating permutations using recursion
+✅ In-place backtracking using swap()
+✅ Why we need to restore the array after recursion
+✅ Difference between subsets and permutations
+✅ Understanding recursion trees more clearly
+
+⏱️ Time Complexity: O(n × n!)
+💾 Auxiliary Space: O(n) for the recursion stack (excluding output)
+
+Another day, another step toward becoming better at DSA. 🔥
+
+Day 24 completed. 🚀
+
+#DrGViswanathanChallenge #Day24 #LeetCode #LeetCode46 #Permutations #Backtracking #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #CompetitiveProgramming #SoftwareEngineering
+
+//===================================================================
+
+
+class Solution {
+public:
+    void getper(vector<int>&nums , int idx , vector<vector<int>> &ans){
+        if(idx == nums.size()){
+            ans.push_back({nums});
+            return;
+        }
+        for(int i = idx ; i<nums.size() ; i++){
+            swap(nums[idx],nums[i]);
+            getper(nums,idx+1,ans);
+
+            //backtracking
+            swap(nums[idx],nums[i]);
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>>ans;
+        int idx = 0;
+        getper(nums,idx,ans);
+        return ans;
+    }
+};
