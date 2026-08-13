@@ -1,0 +1,109 @@
+## 🚀 Day 25 of #DrGViswanathanChallenge
+
+Today, I solved **LeetCode 51 – N-Queens**.
+
+After working with subsets and permutations, today I took another step into **Backtracking** with one of the classic constraint-based problems. N-Queens helped me understand how recursion can systematically explore different possibilities while eliminating invalid choices early.
+
+💡 **Approach: Recursion + Backtracking**
+
+The core idea is to place **one queen in each row** and check whether the current position is safe:
+
+* ✅ Try placing a queen in each column of the current row.
+* 🔍 Check whether the position is safe from previously placed queens.
+* ➡️ If safe, place the queen and recursively move to the next row.
+* ❌ If no valid position works, backtrack and remove the previously placed queen.
+* 🎯 When all `n` queens are successfully placed, store the board as a valid solution.
+
+📚 **What I Learned:**
+
+* ✅ Understanding **Backtracking** in constraint-based problems
+* ✅ Using recursion to explore multiple possible configurations
+* ✅ Checking **column and diagonal conflicts**
+* ✅ Learning when and how to **backtrack** from an invalid choice
+* ✅ Understanding how pruning invalid choices makes recursive solutions practical
+* ✅ Building stronger intuition for **recursion trees**
+
+⏱️ **Time Complexity:** Approximately `O(N!)`
+💾 **Space Complexity:** `O(N²)` for storing the board *(excluding the output)*
+
+💻 **GitHub Repository:**
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+**Day 25 completed.** 🔥
+From **Subsets → Subsets II → Permutations → N-Queens**, I'm gradually getting more comfortable with recursion and backtracking. Each problem is helping me understand how to make a choice, explore it, and undo it when necessary. 🚀
+
+#DrGViswanathanChallenge #Day25 #LeetCode #LeetCode51 #NQueens #Backtracking #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #GitHub #CompetitiveProgramming #SoftwareEngineer #Tech #VITBhopal
+
+
+///====================================================
+
+
+class Solution {
+public:
+
+    bool isSafe(vector<string>& board, int row, int col, int n) {
+
+        // Check column
+        for (int i = 0; i < row; i++) {
+            if (board[i][col] == 'Q')
+                return false;
+        }
+
+        // Check upper-left diagonal
+        for (int i = row - 1, j = col - 1;
+             i >= 0 && j >= 0;
+             i--, j--) {
+
+            if (board[i][j] == 'Q')
+                return false;
+        }
+
+        // Check upper-right diagonal
+        for (int i = row - 1, j = col + 1;
+             i >= 0 && j < n;
+             i--, j++) {
+
+            if (board[i][j] == 'Q')
+                return false;
+        }
+
+        return true;
+    }
+
+    void solve(vector<string>& board, int row,
+               int n, vector<vector<string>>& ans) {
+
+        // All queens placed
+        if (row == n) {
+            ans.push_back(board);
+            return;
+        }
+
+        // Try every column in current row
+        for (int col = 0; col < n; col++) {
+
+            if (isSafe(board, row, col, n)) {
+
+                // Place queen
+                board[row][col] = 'Q';
+
+                // Move to next row
+                solve(board, row + 1, n, ans);
+
+                // Backtrack
+                board[row][col] = '.';
+            }
+        }
+    }
+
+    vector<vector<string>> solveNQueens(int n) {
+
+        vector<vector<string>> ans;
+
+        vector<string> board(n, string(n, '.'));
+
+        solve(board, 0, n, ans);
+
+        return ans;
+    }
+};
