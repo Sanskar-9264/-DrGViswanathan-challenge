@@ -1,1 +1,111 @@
+## 🚀 Day 26 of #DrGViswanathanChallenge
 
+Today, I solved **LeetCode 37 – Sudoku Solver**.
+
+After solving **N-Queens**, I continued exploring **Backtracking** with another classic constraint-based problem. Sudoku Solver helped me understand how backtracking can be used to make a sequence of choices, validate them, and undo them whenever they lead to an invalid state.
+
+💡 **Approach: Recursion + Backtracking**
+
+The core idea is to fill the empty cells one by one:
+
+* 🔍 Find an empty cell in the Sudoku board.
+* 🔢 Try placing numbers from `1` to `9`.
+* ✅ Check whether the number is valid in the current **row, column, and 3×3 box**.
+* ➡️ If valid, place the number and recursively solve the remaining board.
+* 🔄 If the choice leads to a dead end, undo it and try the next number.
+* 🎯 When there are no empty cells left, the Sudoku is solved.
+
+📚 **What I Learned:**
+
+* ✅ Applying **Backtracking** to a real constraint-solving problem
+* ✅ How to validate **row, column, and 3×3 box** constraints
+* ✅ Using recursion to explore possible solutions
+* ✅ Understanding how **backtracking reverses an incorrect decision**
+* ✅ How checking constraints early helps eliminate invalid possibilities
+* ✅ Strengthening my understanding of recursive problem solving
+
+⏱️ **Time Complexity:** `O(9^m)` in the worst case, where `m` is the number of empty cells
+💾 **Space Complexity:** `O(m)` auxiliary recursion space *(excluding the board)*
+
+💻 **GitHub Repository:**
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+**Day 26 completed.** 🔥
+From **Subsets → Subsets II → Permutations → N-Queens → Sudoku Solver**, I'm gradually building a stronger understanding of **Recursion and Backtracking**. Every problem is teaching me how to make a choice, validate it, explore it, and backtrack when necessary. 🚀
+
+#DrGViswanathanChallenge #Day26 #LeetCode #LeetCode37 #SudokuSolver #Backtracking #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #GitHub #CompetitiveProgramming #SoftwareEngineer #Tech #VITBhopal
+
+
+//========================================================
+
+class Solution {
+public:
+
+    bool isSafe(vector<vector<char>>& board, int row, int col, char num) {
+
+        // Check row
+        for (int j = 0; j < 9; j++) {
+            if (board[row][j] == num)
+                return false;
+        }
+
+        // Check column
+        for (int i = 0; i < 9; i++) {
+            if (board[i][col] == num)
+                return false;
+        }
+
+        // Check 3 x 3 box
+        int startRow = (row / 3) * 3;
+        int startCol = (col / 3) * 3;
+
+        for (int i = startRow; i < startRow + 3; i++) {
+            for (int j = startCol; j < startCol + 3; j++) {
+
+                if (board[i][j] == num)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    bool solve(vector<vector<char>>& board) {
+
+        // Find an empty cell
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+
+                if (board[row][col] == '.') {
+
+                    // Try numbers 1 to 9
+                    for (char num = '1'; num <= '9'; num++) {
+
+                        if (isSafe(board, row, col, num)) {
+
+                            // Place number
+                            board[row][col] = num;
+
+                            // Recursively solve remaining Sudoku
+                            if (solve(board))
+                                return true;
+
+                            // Backtrack
+                            board[row][col] = '.';
+                        }
+                    }
+
+                    // No number worked
+                    return false;
+                }
+            }
+        }
+
+        // No empty cell left → Sudoku solved
+        return true;
+    }
+
+    void solveSudoku(vector<vector<char>>& board) {
+        solve(board);
+    }
+};
