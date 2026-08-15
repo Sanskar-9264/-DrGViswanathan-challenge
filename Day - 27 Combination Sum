@@ -1,0 +1,78 @@
+## 🚀 Day 27 of #DrGViswanathanChallenge
+
+Today, I solved **LeetCode 39 – Combination Sum**.
+
+After solving **N-Queens** and **Sudoku Solver**, I continued practicing **Recursion + Backtracking** with Combination Sum. This problem helped me understand how the same element can be reused multiple times while still exploring all possible combinations.
+
+💡 **Approach: Recursion + Backtracking + Include/Exclude**
+
+The core idea is to make two choices at every step:
+
+* ✅ **Include** the current candidate and reduce the target by its value.
+* ❌ **Exclude** the current candidate and move to the next element.
+* 🔁 When including an element, I keep the same index because the element can be used **unlimited times**.
+* 🔄 After recursion, I use `pop_back()` to backtrack and restore the previous state.
+* 🎯 When the target becomes `0`, the current combination is added to the result.
+
+📚 **What I Learned:**
+
+* ✅ Using **include/exclude recursion** for combination problems
+* ✅ How **backtracking** helps explore all possible combinations
+* ✅ Handling cases where an element can be used **multiple times**
+* ✅ Using `push_back()` and `pop_back()` to maintain the current combination
+* ✅ Using conditions like `target < 0` for **pruning**
+* ✅ Understanding how changing the recursive index affects whether an element can be reused
+
+⏱️ **Time Complexity:** Exponential, depending on the target and candidates
+💾 **Space Complexity:** `O(T)` recursion depth in the worst case *(excluding the output)*
+
+💻 **GitHub Repository:**
+🔗 https://github.com/Sanskar-9264/-DrGViswanathan-challenge
+
+**Day 27 completed.** 🔥
+Another backtracking problem solved. From generating **Subsets and Permutations** to solving **N-Queens, Sudoku, and Combination Sum**, I'm getting more comfortable with recursive decision-making and learning when to **choose, explore, and undo**. 🚀
+
+#DrGViswanathanChallenge #Day27 #LeetCode #LeetCode39 #CombinationSum #Backtracking #Recursion #DSA #Algorithms #Cpp #ProblemSolving #CodingJourney #100DaysOfCode #LearningInPublic #GitHub #CompetitiveProgramming #SoftwareEngineer #Tech #VITBhopal
+
+
+//=================================================
+
+class Solution {
+public:
+
+    void solve(vector<int>& candidates, int target, int idx,
+               vector<int>& ans, vector<vector<int>>& result) {
+
+        if (target == 0) {
+            result.push_back(ans);
+            return;
+        }
+
+        if (idx == candidates.size() || target < 0)
+            return;
+
+        // Include current element
+        if (candidates[idx] <= target) {
+            ans.push_back(candidates[idx]);
+            
+            solve(candidates, target - candidates[idx],
+                  idx, ans, result);
+
+            // Backtrack
+            ans.pop_back();
+        }
+
+        // Exclude current element
+        solve(candidates, target, idx + 1, ans, result);
+    }
+
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+
+        vector<vector<int>> result;
+        vector<int> ans;
+
+        solve(candidates, target, 0, ans, result);
+
+        return result;
+    }
+};
